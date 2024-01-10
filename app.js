@@ -17,6 +17,16 @@ app.get('/', (req, res) => {
 
 app.get('/find-the-remainder/:num1/:num2', (req, res) => {
     const {num1, num2} = req.params;
+
+    // error handling - if input is not a number
+    if (String(parseInt(num1)).length !== num1.length){
+        res.send(`${num1} is not a valid number`);
+        return;
+    }
+    if (String(parseInt(num2)).length !== num1.length){
+        res.send(`${num2} is not a valid number`);
+        return;
+    }
     
     const foundRemainder = remainder(num1, num2);
 
