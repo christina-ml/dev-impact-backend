@@ -23,7 +23,7 @@ app.get('/find-the-remainder/:num1/:num2', (req, res) => {
         res.send(`${num1} is not a valid number`);
         return;
     }
-    if (String(parseInt(num2)).length !== num1.length){
+    if (String(parseInt(num2)).length !== num2.length){
         res.send(`${num2} is not a valid number`);
         return;
     }
