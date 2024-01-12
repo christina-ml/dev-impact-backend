@@ -3,18 +3,7 @@ const express = require('express');
 const app = express();
 
 // Functions
-function remainder(n, m){
-    const largerNum = Math.max(n,m);
-    const smallerNum = Math.min(n,m);
-    
-    return largerNum % smallerNum;
-}
-
-function removeDuplicateWords (s) {
-    s = s.split(' ');
-    s = new Set(s);
-    return Array.from(s).join(' ');
-}
+const { remainder, removeDuplicateWords } = require('./stringUtils');
 
 // Routes
 app.get('/', (req, res) => {
