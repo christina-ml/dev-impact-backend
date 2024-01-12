@@ -10,6 +10,12 @@ function remainder(n, m){
     return largerNum % smallerNum;
 }
 
+function removeDuplicateWords (s) {
+    s = s.split(' ');
+    s = new Set(s);
+    return Array.from(s).join(' ');
+}
+
 // Routes
 app.get('/', (req, res) => {
     res.send('my first API');
@@ -35,5 +41,11 @@ app.get('/find-the-remainder/:num1/:num2', (req, res) => {
 
     res.send(`The remainder of ${largerNum} divided by ${smallerNum} is ${foundRemainder}.`);
 })
+
+app.get('/remove-duplicates/:str', (req, res) => {
+    const { str } = req.params;
+    const removedDuplicates = removeDuplicateWords(str);
+    res.send(`${removedDuplicates}`)
+});
 
 module.exports = app;
